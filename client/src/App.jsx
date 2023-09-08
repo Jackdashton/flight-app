@@ -11,27 +11,29 @@ function App() {
 
   React.useEffect(() => {
     async function fetchData() {
-      const response = await fetch(ENDPOINT);
-      const json = await response.json();
-      setData(json);
-      console.log(data);
+      try {
+        const response = await fetch(ENDPOINT);
+        const json = await response.json();
+        setData(json);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     }
 
     fetchData();
   }, []);
 
-  // Data object contains an array of flight objects - CAN'T ACCESS DATA AS IT'S INITIALLY
-  // const flightsArray = data.flight;
-  // console.log(flightsArray);
-
-  // flightsArray.map((flight) => {
-  //   console.log(flight)
-  // })
+  const flightsArray = data.flight;
+  if (data.flight) {
+    flightsArray.map((flight) => {
+      console.log(flight);
+    });
+  }
 
   return (
     <>
       <SearchForm />
-      <Results />
+      <Results data={data} />
     </>
   );
 }
