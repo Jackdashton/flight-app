@@ -7,14 +7,17 @@ function Results({ data }) {
     return (
       <ul>
         {flightsArray.map((flight) => (
-          <li key={flight.$.id}>{flight.$.id}</li>
+          <li key={flight.$.id}>
+            <p>ID: {flight.$.id}</p>
+            <p>Carrier: {flight.$.carrier}</p>
+            <p>Departure Airport: {flight.$.depair}</p>
+            <p>Destination Airport: {flight.$.destair}</p>
+          </li>
         ))}
       </ul>
     );
   }
-  return (
-    <p> Can't find the Data</p>
-  )
+  return <p> Cannot find Data</p>;
 }
 
 Results.propTypes = {
