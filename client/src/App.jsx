@@ -2,6 +2,7 @@ import "./App.css";
 import SearchForm from "./components/SearchForm";
 // import Results from "./components/Results";
 import MorningFlights from "./components/MorningFlights";
+import SwedishFlights from "./components/SwedishFlights";
 import React from "react";
 
 const ENDPOINT = "http://localhost:3000/api/flights";
@@ -33,9 +34,10 @@ function App() {
 
   return (
     <>
-      <SearchForm />
+      <SwedishFlights data={data}/>
       {/* <Results data={data} /> */}
       <MorningFlights data={data} />
+
     </>
   );
 }
