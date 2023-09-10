@@ -14,7 +14,15 @@ function SwedishFlights({ data }) {
         if (swedishCodes.includes(flight.$.destair)) {
           setCount((prevCount) => prevCount + 1);
         }
-      });
+      }
+      if (flight.segment) {
+        flight.segment.forEach((segment) => {
+          if (swedishCodes.includes(segment.$.arrcode)) {
+            setCount((prevCount) => prevCount + 1);
+          }
+        }
+
+      );
     }
 
     if (flightsArray) {
