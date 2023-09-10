@@ -2,6 +2,7 @@ import "./App.css";
 import SearchForm from "./components/SearchForm";
 // import Results from "./components/Results";
 import MorningFlights from "./components/MorningFlights";
+import SwedishFlights from "./components/SwedishFlights";
 import React from "react";
 
 const ENDPOINT = "http://localhost:3000/api/flights";
@@ -25,16 +26,15 @@ function App() {
   }, []);
 
   const flightsArray = data.flight;
-  if (data.flight) {
-    flightsArray.map((flight) => {
-      console.log(flight);
-    });
-  }
+  // if (data.flight) {
+  //   flightsArray.map((flight) => {
+  //     console.log(flight);
+  //   });
+  // }
 
   return (
     <>
-      <SearchForm />
-      {/* <Results data={data} /> */}
+      <SwedishFlights data={data}/>
       <MorningFlights data={data} />
     </>
   );
