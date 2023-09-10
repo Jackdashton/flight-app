@@ -10,7 +10,6 @@ function SwedishFlights({ data }) {
   React.useEffect(() => {
 
     function getSwedishFlights(flightsArray) {
-      console.log(flightsArray);
       flightsArray.forEach((flight) => {
         if (swedishCodes.includes(flight.$.destair)) {
           setCount((prevCount) => prevCount + 1);
