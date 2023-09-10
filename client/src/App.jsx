@@ -26,18 +26,16 @@ function App() {
   }, []);
 
   const flightsArray = data.flight;
-  if (data.flight) {
-    flightsArray.map((flight) => {
-      console.log(flight);
-    });
-  }
+  // if (data.flight) {
+  //   flightsArray.map((flight) => {
+  //     console.log(flight);
+  //   });
+  // }
 
   return (
     <>
       <SwedishFlights data={data}/>
-      {/* <Results data={data} /> */}
       <MorningFlights data={data} />
-
     </>
   );
 }

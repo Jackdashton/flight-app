@@ -78,7 +78,7 @@ function MorningFlights({ data }) {
       <p>Number of morning flights: {morningFlightCount}</p>
       <ul>
         {morningFlights.map((flight, index) => (
-          <li key={flight.index}>
+          <li key={index}>
             <p>{flight.$.reservation}</p>
             <p>
               {flight.$.depair} - {flight.$.destair}
