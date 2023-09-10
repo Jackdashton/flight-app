@@ -12,13 +12,14 @@ function MorningFlights({ data }) {
     return date;
   }
 
-  function countMorningFlights() {
+  function getMorningFlights() {
     // Set cut off time for check
     const noon = new Date();
     noon.setHours(12, 0, 0);
 
     // Set count to 0
     let morningFlightCount = 0;
+    const morningFlights = [];
 
     if (flightsArray) {
       for (const flight of flightsArray) {
@@ -28,21 +29,24 @@ function MorningFlights({ data }) {
 
         if (!hasSegments) {
           // if there are no segments
-          if(inDepartTime < noon && outDepartTime < noon) {
+          if (inDepartTime < noon && outDepartTime < noon) {
             morningFlightCount += 2;
+            morningFlights.push(flight);
           } else if (inDepartTime < noon || outDepartTime < noon) {
             morningFlightCount++;
+            morningFlights.push(flight);
           } else if (hasSegments) {
             // The flight has segments - check them
             const segments = flight.segments[0].segment;
 
             let hasMorningSegment = false;
 
-            for(const segment of segments) {
+            for (const segment of segments) {
               const segmentDepartTime = convertToTime(segment.$.deptime);
 
               if (segmentDepartTime < noon) {
                 hasMorningSegment = true;
+                morningFlights.push(segment);
                 break;
               }
             }
@@ -51,7 +55,11 @@ function MorningFlights({ data }) {
               morningFlightCount++;
             }
 
-            if (hasMorningSegment && inDepartTime < noon && outDepartTime < noon ) {
+            if (
+              hasMorningSegment &&
+              inDepartTime < noon &&
+              outDepartTime < noon
+            ) {
               morningFlightCount += 2;
             }
           }
@@ -59,18 +67,27 @@ function MorningFlights({ data }) {
       }
     }
 
-    return morningFlightCount;
-
+    return { count: morningFlightCount, flights: morningFlights };
   }
 
-  const morningFlightCount = countMorningFlights();
+  const { count: morningFlightCount, flights: morningFlights } =
+    getMorningFlights();
 
   return (
     <>
       <p>Number of morning flights: {morningFlightCount}</p>
+      <ul>
+        {morningFlights.map((flight, index) => (
+          <li key={flight.index}>
+            <p>{flight.$.reservation}</p>
+            <p>
+              {flight.$.depair} - {flight.$.destair}
+            </p>
+          </li>
+        ))}
+      </ul>
     </>
-  )
-
+  );
 }
 
 MorningFlights.propTypes = {
