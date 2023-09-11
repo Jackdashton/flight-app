@@ -18,15 +18,15 @@ function MostPopular({ data }) {
             const destAirport = segment.$.arrcode;
             // destAirport key - if key exists + 1 , or new key + 1
             destOccurences[destAirport] = (destOccurences[destAirport] || 0) + 1;
-            console.log(destOccurences);
-            console.log("done");
+            // console.log(destOccurences);
+            // console.log("done");
           });
         } else if (!flight.$.segments){
           // If no segments, count destair occurences
           const destAirport = flight.$.destair;
           destOccurences[destAirport] = (destOccurences[destAirport] || 0) + 1;
-          console.log(destOccurences);
-          console.log("no segments")
+          // console.log(destOccurences);
+          // console.log("no segments")
         }
       });
 

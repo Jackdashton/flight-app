@@ -9,23 +9,48 @@ function LondonDubai({ data }) {
 
   const flightsArray = data.flight;
   const [isLoading, setIsLoading] = React.useState(true);
+  const [flights, setFlights] = React.useState([]);
 
 // Convert arrival and departure dates and times from string to time/date
-  function convertToTime(timeString) {
+  function convertToDateTime(dateString, timeString) {
+    const [year, month, day] = dateString.split("-").map(Number);
     const [hours, minutes, seconds] = timeString.split(":");
-    const date = new Date();
-    date.setHours(hours, minutes, seconds, 0); //Date to 0 to get time only
+    const date = new Date(year, month-1, day, hours, minutes, seconds);
     return date;
   }
 
-  function convertToDate(dateString) {
-    const [day, month, year] = dateString.split("-").map(Number);
-    const fullYear = 2000 + year;
-    const date = new Date(fullYear, month -1, day);
-    // JS zero based indexing for months, so -1
-    return date;
+  React.useEffect(() => {
+    const dubaiFlights = [];
+
+    if (flightsArray) {
+      flightsArray.map((flight) => {
+        if (flight.$.destair === "DXB" && flight.$.depair === "LHR") {
+          dubaiFlights.push(flight);
+        }
+      })
+    }
+    setFlights(dubaiFlights);
+    console.log(dubaiFlights);
+  },[flightsArray])
+
+  function outboundFlights(){
+    const dubaiFlights = flights;
+
+    dubaiFlights.forEach((flight) => {
+      const depDateString = flight.$.outdepartdate;
+      const depTimeString = flight.$.outdeparttime;
+      const arrDateString = flight.$.outarrivaldate;
+      const arrTimeString = flight.$.outarrivaltime;
+      const depDateTime = convertToDateTime(depDateString, depTimeString);
+      const arrDateTime = convertToDateTime(arrDateString, arrTimeString);
+      // -4 Hours to account for GMT-GST (Can be modified to support BST (-3))
+      // Convert to hours from milliseconds and round to 2dp
+      const duration = (Math.round(100*(arrDateTime - depDateTime)*2.777777777E-7)/100)-4;
+      console.log(duration)
+    })
   }
 
+  outboundFlights();
 
 
   return (
