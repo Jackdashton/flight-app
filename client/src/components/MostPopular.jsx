@@ -12,17 +12,21 @@ function MostPopular({ data }) {
       const destOccurences = {};
 
       flightsArray.forEach((flight) => {
-        // For flights without segments, use destair
-        if (!flight.segment) {
-          const destAirport = flight.$.destair;
-          // destAirport key - if key exists + 1 , or new key + 1
-          destOccurences[destAirport] = (destOccurences[destAirport] || 0) + 1;
-        } else {
-          flight.segment.forEach((segment) => {
+        // For flights with segments array and containing at least one element
+        if (flight.segments) {
+          flight.segments[0].segment.forEach((segment) => {
             const destAirport = segment.$.arrcode;
-            destOccurences[destAirport] =
-              (destOccurences[destAirport] || 0) + 1;
+            // destAirport key - if key exists + 1 , or new key + 1
+            destOccurences[destAirport] = (destOccurences[destAirport] || 0) + 1;
+            console.log(destOccurences);
+            console.log("done");
           });
+        } else if (!flight.$.segments){
+          // If no segments, count destair occurences
+          const destAirport = flight.$.destair;
+          destOccurences[destAirport] = (destOccurences[destAirport] || 0) + 1;
+          console.log(destOccurences);
+          console.log("no segments")
         }
       });
 
@@ -37,8 +41,6 @@ function MostPopular({ data }) {
       setIsLoading(false);
     }
   }, [flightsArray]);
-
-  console.log(topAirports);
 
   return (
     <>
