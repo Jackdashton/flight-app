@@ -35,7 +35,7 @@ function App() {
 
   return (
     <>
-      <MostPopular />
+      <MostPopular data={data} />
       <SwedishFlights data={data}/>
       <MorningFlights data={data} />
     </>
