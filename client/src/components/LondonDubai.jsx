@@ -87,12 +87,12 @@ function LondonDubai({ data }) {
     total = total + number;
   })
   const avgDuration = Math.round(100*total / allDurations.length)/100;
-  console.log(avgDuration);
 
 
   return (
     <>
       <h4>Average journey time between LHR and DXB</h4>
+      {/* Convert to hours and minutes ?? */}
       <p>The average journey takes: {avgDuration} Hours</p>
     </>
   );
