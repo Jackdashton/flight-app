@@ -75,6 +75,7 @@ function MorningFlights({ data }) {
 
   return (
     <>
+      <h4>Morning Flights</h4>
       <p>Number of morning flights: {morningFlightCount}</p>
       <ul>
         {morningFlights.map((flight, index) => (

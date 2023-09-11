@@ -39,7 +39,7 @@ function SwedishFlights({ data }) {
 
   return (
     <>
-      <h1>Swedish Flights</h1>
+      <h4>Swedish Flights</h4>
       <p>Number of flights flying in to Sweden: {count} </p>
       {isLoading ? (
         <p>Flight Data Loading....</p>
