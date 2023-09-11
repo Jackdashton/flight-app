@@ -35,6 +35,7 @@ function LondonDubai({ data }) {
 
   function outboundFlights(){
     const dubaiFlights = flights;
+    const outboundDurations = [];
 
     dubaiFlights.forEach((flight) => {
       const depDateString = flight.$.outdepartdate;
@@ -46,11 +47,32 @@ function LondonDubai({ data }) {
       // -4 Hours to account for GMT-GST (Can be modified to support BST (-3))
       // Convert to hours from milliseconds and round to 2dp
       const duration = (Math.round(100*(arrDateTime - depDateTime)*2.777777777E-7)/100)-4;
-      console.log(duration)
+      outboundDurations.push(duration);
+      console.log(outboundDurations)
+    })
+  }
+
+  function inboundFlights(){
+    const dubaiFlights = flights;
+    const inboundDurations = [];
+
+    dubaiFlights.forEach((flight) => {
+      const depDateString = flight.$.indepartdate;
+      const depTimeString = flight.$.indeparttime;
+      const arrDateString = flight.$.inarrivaldate;
+      const arrTimeString = flight.$.inarrivaltime;
+      const depDateTime = convertToDateTime(depDateString, depTimeString);
+      const arrDateTime = convertToDateTime(arrDateString, arrTimeString);
+      // +4 Hours to account for GMT-GST (Can be modified to support BST (+3))
+      // Convert to hours from milliseconds and round to 2dp
+      const duration = (Math.round(100*(arrDateTime - depDateTime)*2.777777777E-7)/100)+4;
+      inboundDurations.push(duration);
+      console.log(inboundDurations);
     })
   }
 
   outboundFlights();
+  inboundFlights();
 
 
   return (
