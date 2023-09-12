@@ -6,6 +6,7 @@ function CheapestFlights({ data }) {
   const [currencies, setCurrencies] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [currencyRates, setCurrencyRates] = React.useState({});
+  const [convertedFlightsArray, setConvertedFlightsArray] = React.useState([]);
 
   React.useEffect(() => {
     function gatherCurrencies() {
@@ -40,34 +41,38 @@ function CheapestFlights({ data }) {
     currencyRates();
   }, [currencies]);
 
-  function convertToGBP() {
-    if (currencyRates) {
-      const updatedFlightsArray = flightsArray.map((flight) => {
-        const originalCurrency = flight.$.originalcurrency;
-        const originalPrice = parseFloat(flight.$.originalprice);
+  React.useEffect(() => {
+    function convertToGBP() {
+      if (currencyRates) {
+        const updatedFlightsArray = flightsArray.map((flight) => {
+          const originalCurrency = flight.$.originalcurrency;
+          const originalPrice = parseFloat(flight.$.originalprice);
 
-        if (originalCurrency === "GBP") {
-          return {
-            // copy all properties of original flight and add new property with value
-            ...flight,
-            priceInGBP: originalPrice,
-          };
-          //  check whether currency exists in currencyRates array
-        } else if (currencyRates[originalCurrency]) {
-          // Obtain conversion rate for currency
-          const conversionRate = currencyRates[originalCurrency];
-          const priceInGBP = originalPrice * conversionRate;
-          return {
-            ...flight,
-            priceInGBP,
-          };
-        } else {
-          return flight;
-        }
-      });
-      return updatedFlightsArray;
+          if (originalCurrency === "GBP") {
+            return {
+              // copy all properties of original flight and add new property with value
+              ...flight,
+              priceInGBP: originalPrice,
+            };
+            //  check whether currency exists in currencyRates array
+          } else if (currencyRates[originalCurrency]) {
+            // Obtain conversion rate for currency
+            const conversionRate = currencyRates[originalCurrency];
+            const priceInGBP = originalPrice * conversionRate;
+            return {
+              ...flight,
+              priceInGBP,
+            };
+          } else {
+            return flight;
+          }
+        });
+        setConvertedFlightsArray(updatedFlightsArray);
+      }
     }
-  }
+  }, [flightsArray, currencies]);
+
+  console.log(convertedFlightsArray);
 
   return (
     <div>
