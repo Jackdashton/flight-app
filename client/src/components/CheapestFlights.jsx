@@ -53,13 +53,13 @@ function CheapestFlights({ data }) {
             return {
               // copy all properties of original flight and add new property with value
               ...flight,
-              priceInGBP: originalPrice,
+              priceInGBP: originalPrice.toFixed(2),
             };
             //  check whether currency exists in currencyRates array
           } else if (currencyRates[originalCurrency]) {
             // Obtain conversion rate for currency
             const conversionRate = currencyRates[originalCurrency];
-            const priceInGBP = originalPrice * conversionRate;
+            const priceInGBP = Math.round((originalPrice * conversionRate)*100)/100;
             return {
               ...flight,
               priceInGBP,
@@ -77,18 +77,27 @@ function CheapestFlights({ data }) {
   React.useEffect(() => {
     function sortArray() {
       const sortedArray = [...convertedFlightsArray];
-      sortedArray.sort((a, b) => b.priceInGBP - a.priceInGBP);
+      sortedArray.sort((a, b) => a.priceInGBP - b.priceInGBP);
+      console.log(sortedArray)
       setSortedArray(sortedArray);
     }
     sortArray();
   }, [convertedFlightsArray]);
 
-  
+
+  console.log(sortedArray);
+  const cheapestTen = sortedArray.slice(0, 10);
+  console.log(cheapestTen);
 
   return (
-    <div>
+    <>
       <h4>10 Cheapest Flights</h4>
-    </div>
+      <ul>
+        {cheapestTen.map((flight, index) => {
+          return <li key={index}>£ {flight.priceInGBP}</li>;
+        })}
+      </ul>
+    </>
   );
 }
 
