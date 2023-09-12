@@ -2,9 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function LondonDubai({ data }) {
-  // In January UK = GMT, GMT to GST is +/- 4 hours - must be factored in to arrival and departure times
-  // Data only contains LHR-DXB, not DXB-LHR - all but one are direct, however must account for all journeys
-
   const flightsArray = data.flight;
   const [isLoading, setIsLoading] = React.useState(true);
   const [flights, setFlights] = React.useState([]);
@@ -38,12 +35,8 @@ function LondonDubai({ data }) {
       const outboundDurations = [];
 
       dubaiFlights.forEach((flight) => {
-        const depDateString = flight.$.outdepartdate;
-        const depTimeString = flight.$.outdeparttime;
-        const arrDateString = flight.$.outarrivaldate;
-        const arrTimeString = flight.$.outarrivaltime;
-        const depDateTime = convertToDateTime(depDateString, depTimeString);
-        const arrDateTime = convertToDateTime(arrDateString, arrTimeString);
+        const depDateTime = convertToDateTime(flight.$.outdepartdate, flight.$.outdeparttime);
+        const arrDateTime = convertToDateTime(flight.$.outarrivaldate, flight.$.outarrivaltime);
         // -4 Hours to account for GMT-GST (Can be modified to support BST (-3))
         // Convert to hours from milliseconds and round to 2dp
         const duration =
@@ -62,38 +55,37 @@ function LondonDubai({ data }) {
       const inboundDurations = [];
 
       dubaiFlights.forEach((flight) => {
-        const depDateString = flight.$.indepartdate;
-        const depTimeString = flight.$.indeparttime;
-        const arrDateString = flight.$.inarrivaldate;
-        const arrTimeString = flight.$.inarrivaltime;
-        const depDateTime = convertToDateTime(depDateString, depTimeString);
-        const arrDateTime = convertToDateTime(arrDateString, arrTimeString);
+        const depDateTime = convertToDateTime(flight.$.indepartdate, flight.$.indeparttime);
+        const arrDateTime = convertToDateTime(flight.$.inarrivaldate, flight.$.inarrivaltime);
         // +4 Hours to account for GMT-GST (Can be modified to support BST (+3))
-        // Convert to hours from milliseconds and round to 2dp
+        // For this exercise, as no. in = out , same answer
         const duration =
           Math.round(100 * (arrDateTime - depDateTime) * 2.777777777e-7) / 100 +
           4;
         inboundDurations.push(duration);
       });
       setInboundDurations(inboundDurations);
+      setIsLoading(false);
     }
     calculateInboundDurations();
   }, [flights]);
 
   // Combine two arrays and find average
-  const allDurations = [...outboundDurations, ...inboundDurations]
+  const allDurations = [...outboundDurations, ...inboundDurations];
   let total = 0;
   allDurations.map((number) => {
     total = total + number;
-  })
-  const avgDuration = Math.round(100*total / allDurations.length)/100;
-
+  });
+  const avgDurationInHours = Math.round((total/allDurations.length)*100) / 100;
+  const hours = Math.floor(avgDurationInHours);
+  const mins = Math.round((avgDurationInHours - hours) * 60)
 
   return (
     <>
       <h4>Average journey time between LHR and DXB</h4>
-      {/* Convert to hours and minutes ?? */}
-      <p>The average journey takes: {avgDuration} Hours</p>
+      {isLoading ? ("Data Loading...") : (
+        <p>The average journey takes: {hours} Hours {mins} Minutes</p>
+      )}
     </>
   );
 }
