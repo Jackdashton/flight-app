@@ -1,0 +1,10 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.menu button {
+  background-color: #5dbea3;
+  border: black solid 1px;
+}
