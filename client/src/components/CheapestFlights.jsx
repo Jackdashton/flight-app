@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 function CheapestFlights({ data }) {
   const flightsArray = data.flight;
   const [currencies, setCurrencies] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
   const [currencyRates, setCurrencyRates] = React.useState({});
   const [convertedFlightsArray, setConvertedFlightsArray] = React.useState([]);
   const [sortedArray, setSortedArray] = React.useState([]);
@@ -78,16 +77,12 @@ function CheapestFlights({ data }) {
     function sortArray() {
       const sortedArray = [...convertedFlightsArray];
       sortedArray.sort((a, b) => a.priceInGBP - b.priceInGBP);
-      console.log(sortedArray)
       setSortedArray(sortedArray);
     }
     sortArray();
   }, [convertedFlightsArray]);
 
-
-  console.log(sortedArray);
   const cheapestTen = sortedArray.slice(0, 10);
-  console.log(cheapestTen);
 
   return (
     <>
