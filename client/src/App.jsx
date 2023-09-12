@@ -1,4 +1,5 @@
 import "./App.css";
+import styles from "./App.module.css";
 import MorningFlights from "./components/MorningFlights";
 import SwedishFlights from "./components/SwedishFlights";
 import LondonDubai from "./components/LondonDubai";
@@ -30,35 +31,38 @@ function App() {
     fetchData();
   }, []);
 
-  console.log(showCheapestFlights);
-
   return (
-    <>
-      <button
-      onClick={() => setShowCheapestFlights(!showCheapestFlights)}
-      >Interest Statistic: What are the  10 Cheapest Flights</button>
-      {showCheapestFlights && <CheapestFlights data={data} />}
+    <div>
+      <h1>TravelTek Coding Test [FS-A2] </h1>
+      <h3>Jack Ashton</h3>
+      <div className={styles.menu}>
+        <button onClick={() => setShowCheapestFlights(!showCheapestFlights)}>
+          Interesting Statistic: What are the 10 Cheapest Flights
+        </button>
+        {showCheapestFlights && <CheapestFlights data={data} />}
 
-      <button
-      onClick={() => setShowLondonDubai(!showLondonDubai)}
-      >What’s the average journey time between London Heathrow (LHR) and Dubai (DXB)?</button>
-      {showLondonDubai && <LondonDubai data={data} /> }
+        <button onClick={() => setShowLondonDubai(!showLondonDubai)}>
+          What’s the average journey time between London Heathrow (LHR) and
+          Dubai (DXB)?
+        </button>
+        {showLondonDubai && <LondonDubai data={data} />}
 
-      <button
-      onClick={() => setShowMostPopular(!showMostPopular)}
-      >What are the 10 most popular destination airports?</button>
-      {showMostPopular && <MostPopular data={data} /> }
+        <button onClick={() => setShowMostPopular(!showMostPopular)}>
+          What are the 10 most popular destination airports?
+        </button>
+        {showMostPopular && <MostPopular data={data} />}
 
-      <button
-      onClick={() => setShowSwedishFlights(!showSwedishFlights)}
-      >What percentage of the total set of flights fly into Sweden?</button>
-      {showSwedishFlights && <SwedishFlights data={data} /> }
+        <button onClick={() => setShowSwedishFlights(!showSwedishFlights)}>
+          What percentage of the total set of flights fly into Sweden?
+        </button>
+        {showSwedishFlights && <SwedishFlights data={data} />}
 
-      <button
-      onClick={() => setShowMorningFlights(!showMorningFlights)}
-      >How many of the flights depart in the morning (before 12 PM)?</button>
-      {showMorningFlights && <MorningFlights data={data} /> }
-    </>
+        <button onClick={() => setShowMorningFlights(!showMorningFlights)}>
+          How many of the flights depart in the morning (before 12 PM)?
+        </button>
+        {showMorningFlights && <MorningFlights data={data} />}
+      </div>
+    </div>
   );
 }
 
