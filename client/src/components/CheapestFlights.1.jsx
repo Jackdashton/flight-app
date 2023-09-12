@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function CheapestFlights({ data }) {
+export function CheapestFlights({ data }) {
   const flightsArray = data.flight;
   const [currencies, setCurrencies] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
@@ -28,7 +28,7 @@ function CheapestFlights({ data }) {
       const currencyRates = {};
 
       // Define currency conversion rates as of Jan 2018
-      currencyRates[currencyTypes[0]] = 1.0; // GBP - original
+      currencyRates[currencyTypes[0]] = 1; // GBP - original
       currencyRates[currencyTypes[1]] = 0.5769; // AUD
       currencyRates[currencyTypes[2]] = 0.0398; // ARS
       currencyRates[currencyTypes[3]] = 0.2015; // AED
@@ -48,24 +48,11 @@ function CheapestFlights({ data }) {
 
         if (originalCurrency === "GBP") {
           return {
-            // copy all properties of original flight and add new property with value
             ...flight,
             priceInGBP: originalPrice,
           };
-          //  check whether currency exists in currencyRates array
-        } else if (currencyRates[originalCurrency]) {
-          // Obtain conversion rate for currency
-          const conversionRate = currencyRates[originalCurrency];
-          const priceInGBP = originalPrice * conversionRate;
-          return {
-            ...flight,
-            priceInGBP,
-          };
-        } else {
-          return flight;
         }
       });
-      return updatedFlightsArray;
     }
   }
 
@@ -75,9 +62,6 @@ function CheapestFlights({ data }) {
     </div>
   );
 }
-
 CheapestFlights.propTypes = {
   data: PropTypes.object,
 };
-
-export default CheapestFlights;
