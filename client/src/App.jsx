@@ -2,6 +2,7 @@ import "./App.css";
 import MorningFlights from "./components/MorningFlights";
 import SwedishFlights from "./components/SwedishFlights";
 import LondonDubai from "./components/LondonDubai";
+import CheapestFlights from "./components/CheapestFlights";
 import MostPopular from "./components/MostPopular";
 import React from "react";
 
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <>
+      <CheapestFlights data={data} />
       <LondonDubai data={data} />
       <MostPopular data={data} />
       <SwedishFlights data={data}/>
