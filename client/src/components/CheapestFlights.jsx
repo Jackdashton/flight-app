@@ -7,6 +7,7 @@ function CheapestFlights({ data }) {
   const [isLoading, setIsLoading] = React.useState(true);
   const [currencyRates, setCurrencyRates] = React.useState({});
   const [convertedFlightsArray, setConvertedFlightsArray] = React.useState([]);
+  const [sortedArray, setSortedArray] = React.useState([]);
 
   React.useEffect(() => {
     function gatherCurrencies() {
@@ -43,7 +44,7 @@ function CheapestFlights({ data }) {
 
   React.useEffect(() => {
     function convertToGBP() {
-      if (currencyRates) {
+      if (currencyRates && flightsArray) {
         const updatedFlightsArray = flightsArray.map((flight) => {
           const originalCurrency = flight.$.originalcurrency;
           const originalPrice = parseFloat(flight.$.originalprice);
@@ -70,9 +71,19 @@ function CheapestFlights({ data }) {
         setConvertedFlightsArray(updatedFlightsArray);
       }
     }
-  }, [flightsArray, currencies]);
+    convertToGBP();
+  }, [flightsArray, currencies, currencyRates]);
 
-  console.log(convertedFlightsArray);
+  React.useEffect(() => {
+    function sortArray() {
+      const sortedArray = [...convertedFlightsArray];
+      sortedArray.sort((a, b) => b.priceInGBP - a.priceInGBP);
+      setSortedArray(sortedArray);
+    }
+    sortArray();
+  }, [convertedFlightsArray]);
+
+  
 
   return (
     <div>
