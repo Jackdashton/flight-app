@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 
 function MorningFlights({ data }) {
   const flightsArray = data.flight;
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [flightCount, setFlightCount] = React.useState(0);
+  const [morningFlights, setMorningFlights] = React.useState([]);
 
   // Convert the data from string to time/date
   function convertToTime(timeString) {
@@ -12,81 +15,92 @@ function MorningFlights({ data }) {
     return date;
   }
 
-  function getMorningFlights() {
-    // Set cut off time for check
-    const noon = new Date();
-    noon.setHours(12, 0, 0);
+  React.useEffect(() => {
+    function getMorningFlights(flightsArray) {
+      // Set cut off time for check
+      const noon = new Date();
+      noon.setHours(12, 0, 0);
 
-    // Set count to 0
-    let morningFlightCount = 0;
-    const morningFlights = [];
+      // Set count to 0
+      let morningFlightCount = 0;
+      const morningFlights = [];
 
-    if (flightsArray) {
-      for (const flight of flightsArray) {
-        const hasSegments = flight.segments && flight.segments[0].segment;
-        const inDepartTime = convertToTime(flight.$.indeparttime);
-        const outDepartTime = convertToTime(flight.$.outdeparttime);
+      if (flightsArray) {
+        setIsLoading(false);
+        for (const flight of flightsArray) {
+          const hasSegments = flight.segments && flight.segments[0].segment;
+          const inDepartTime = convertToTime(flight.$.indeparttime);
+          const outDepartTime = convertToTime(flight.$.outdeparttime);
 
-        if (!hasSegments) {
-          // if there are no segments
-          if (inDepartTime < noon && outDepartTime < noon) {
-            morningFlightCount += 2;
-            morningFlights.push(flight);
-          } else if (inDepartTime < noon || outDepartTime < noon) {
-            morningFlightCount++;
-            morningFlights.push(flight);
-          } else if (hasSegments) {
-            // The flight has segments - check them
-            const segments = flight.segments[0].segment;
-
-            let hasMorningSegment = false;
-
-            for (const segment of segments) {
-              const segmentDepartTime = convertToTime(segment.$.deptime);
-
-              if (segmentDepartTime < noon) {
-                hasMorningSegment = true;
-                morningFlights.push(segment);
-                break;
-              }
-            }
-
-            if (hasMorningSegment) {
-              morningFlightCount++;
-            }
-
-            if (
-              hasMorningSegment &&
-              inDepartTime < noon &&
-              outDepartTime < noon
-            ) {
+          if (!hasSegments) {
+            // if there are no segments
+            if (inDepartTime < noon && outDepartTime < noon) {
               morningFlightCount += 2;
+              morningFlights.push(flight);
+            } else if (inDepartTime < noon || outDepartTime < noon) {
+              morningFlightCount++;
+              morningFlights.push(flight);
+            } else if (hasSegments) {
+              // The flight has segments - check them
+              const segments = flight.segments[0].segment;
+
+              let hasMorningSegment = false;
+
+              for (const segment of segments) {
+                const segmentDepartTime = convertToTime(segment.$.deptime);
+
+                if (segmentDepartTime < noon) {
+                  hasMorningSegment = true;
+                  morningFlights.push(segment);
+                  break;
+                }
+              }
+
+              if (hasMorningSegment) {
+                morningFlightCount++;
+              }
+
+              if (
+                hasMorningSegment &&
+                inDepartTime < noon &&
+                outDepartTime < noon
+              ) {
+                morningFlightCount += 2;
+              }
             }
           }
         }
       }
+      setMorningFlights(morningFlights);
+      setFlightCount(morningFlightCount);
+      setIsLoading(false);
     }
 
-    return { count: morningFlightCount, flights: morningFlights };
-  }
+    getMorningFlights(flightsArray);
 
-  const { count: morningFlightCount, flights: morningFlights } =
-    getMorningFlights();
+  }, [flightsArray]);
+
 
   return (
     <>
       <h4>Morning Flights</h4>
-      <p>Number of morning flights: {morningFlightCount}</p>
-      <ul>
-        {morningFlights.map((flight, index) => (
-          <li key={index}>
-            <p>{flight.$.reservation}</p>
-            <p>
-              {flight.$.depair} - {flight.$.destair}
-            </p>
-          </li>
-        ))}
-      </ul>
+      {isLoading ? (
+        "Data Loading..."
+      ) : (
+        <div>
+          <p>Number of morning flights: {flightCount}</p>
+          <ul>
+            {morningFlights.map((flight, index) => (
+              <li key={index}>
+                <p>{flight.$.reservation}</p>
+                <p>
+                  {flight.$.depair} - {flight.$.destair}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </>
   );
 }
