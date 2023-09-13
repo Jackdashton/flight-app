@@ -1,20 +1,19 @@
-.container {
+.flightContainer {
   font-size: 14px;
   display: flex;
   flex-direction: column;
   justify-content: start;
 }
 
-.container ul {
+.flightContainer ul {
   list-style: none;
-  margin: 0px !important;
 }
 
 .card {
   margin-bottom: 10px;
   display: flex;
   flex-wrap: nowrap;
-  overflow: auto; 
+  overflow: auto;
   border: 1px solid black;
   border-radius: 8px;
   background-color: rgb(250, 249, 246);
@@ -42,6 +41,7 @@
 
 .price {
   border-left: 1px dashed grey;
+  font-weight: 600;
 }
 
 .airline {

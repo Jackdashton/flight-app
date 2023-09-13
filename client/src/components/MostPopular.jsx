@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./MostPopular.module.css"
+import styles from "./MostPopular.module.css";
 
 function MostPopular({ data }) {
   const flightsArray = data.flight;
@@ -18,11 +18,12 @@ function MostPopular({ data }) {
           flight.segments[0].segment.forEach((segment) => {
             const destAirport = segment.$.arrcode;
             // destAirport key - if key exists + 1 , or new key + 1
-            destOccurences[destAirport] = (destOccurences[destAirport] || 0) + 1;
+            destOccurences[destAirport] =
+              (destOccurences[destAirport] || 0) + 1;
             // console.log(destOccurences);
             // console.log("done");
           });
-        } else if (!flight.$.segments){
+        } else if (!flight.$.segments) {
           // If no segments, count destair occurences
           const destAirport = flight.$.destair;
           destOccurences[destAirport] = (destOccurences[destAirport] || 0) + 1;
@@ -44,13 +45,16 @@ function MostPopular({ data }) {
   }, [flightsArray]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.airportContainer}>
       {isLoading ? (
         <p>Data Loading.....</p>
       ) : (
         <ol>
           {topAirports.map((airport, index) => (
-            <li key={index}> <strong>{airport}</strong></li>
+            <li key={index} className={styles.airportCard}>
+              <img src={`/flags/${airport}.png`} alt={{ airport }} />
+              <p>{index+1}.<strong>{airport}</strong></p>
+            </li>
           ))}
         </ol>
       )}

@@ -36,10 +36,20 @@ function App() {
       <h1>TravelTek Coding Test [FS-A2] </h1>
       <h3>Jack Ashton</h3>
       <div className={styles.menu}>
-        <button onClick={() => setShowCheapestFlights(!showCheapestFlights)}>
-          Interesting Statistic: What are the 10 Cheapest Flights (converted to £)
+        <button onClick={() => setShowMorningFlights(!showMorningFlights)}>
+          How many of the flights depart in the morning (before 12 PM)?
         </button>
-        {showCheapestFlights && <CheapestFlights data={data} />}
+        {showMorningFlights && <MorningFlights data={data} />}
+
+        <button onClick={() => setShowSwedishFlights(!showSwedishFlights)}>
+          What percentage of the total set of flights fly into Sweden?
+        </button>
+        {showSwedishFlights && <SwedishFlights data={data} />}
+
+        <button onClick={() => setShowMostPopular(!showMostPopular)}>
+          What are the 10 most popular destination airports?
+        </button>
+        {showMostPopular && <MostPopular data={data} />}
 
         <button onClick={() => setShowLondonDubai(!showLondonDubai)}>
           What’s the average journey time between London Heathrow (LHR) and
@@ -47,20 +57,11 @@ function App() {
         </button>
         {showLondonDubai && <LondonDubai data={data} />}
 
-        <button onClick={() => setShowMostPopular(!showMostPopular)}>
-          What are the 10 most popular destination airports?
+        <button onClick={() => setShowCheapestFlights(!showCheapestFlights)}>
+          Interesting Statistic: What are the 10 Cheapest Flights (converted to
+          £)
         </button>
-        {showMostPopular && <MostPopular data={data} />}
-
-        <button onClick={() => setShowSwedishFlights(!showSwedishFlights)}>
-          What percentage of the total set of flights fly into Sweden?
-        </button>
-        {showSwedishFlights && <SwedishFlights data={data} />}
-
-        <button onClick={() => setShowMorningFlights(!showMorningFlights)}>
-          How many of the flights depart in the morning (before 12 PM)?
-        </button>
-        {showMorningFlights && <MorningFlights data={data} />}
+        {showCheapestFlights && <CheapestFlights data={data} />}
       </div>
     </div>
   );
