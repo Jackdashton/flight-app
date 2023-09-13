@@ -95,7 +95,7 @@ function CheapestFlights({ data }) {
       {isLoading ? (
         "Data Loading..."
       ) : (
-        <ul className={styles.container}>
+        <ul className={styles.flightContainer}>
           {cheapestTen.map((flight, index) => {
             return (
               <div key={index}>

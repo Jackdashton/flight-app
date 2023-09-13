@@ -1,7 +1,36 @@
-.container ul {
-  list-style: none;
+.airportContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 16px;
+}
+.airportCard p {
+  margin-top: 8px;
+  font-size: 14px;
 }
 
-.container li {
-  margin: 10px;
+.airportContainer ol {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.airportContainer li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.airportContainer img {
+  width: 40px;
+  height: auto;
+}
+
+.airportCard li {
+  list-style-type: decimal;
 }

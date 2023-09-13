@@ -77,18 +77,17 @@ function MorningFlights({ data }) {
     }
 
     getMorningFlights(flightsArray);
-
   }, [flightsArray]);
-
 
   return (
     <>
-
       {isLoading ? (
         "Data Loading..."
       ) : (
         <div>
-          <p>Number of morning flights: {flightCount}</p>
+          <p>
+            Number of morning flights: <strong>{flightCount}</strong>
+          </p>
         </div>
       )}
     </>
