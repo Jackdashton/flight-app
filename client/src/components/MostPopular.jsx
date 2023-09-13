@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styles from "./MostPopular.module.css"
 
 function MostPopular({ data }) {
   const flightsArray = data.flight;
@@ -43,18 +44,17 @@ function MostPopular({ data }) {
   }, [flightsArray]);
 
   return (
-    <>
-      <h4>Most Popular</h4>
+    <div className={styles.container}>
       {isLoading ? (
         <p>Data Loading.....</p>
       ) : (
-        <ul>
+        <ol>
           {topAirports.map((airport, index) => (
-            <li key={index}>{airport}</li>
+            <li key={index}> <strong>{airport}</strong></li>
           ))}
-        </ul>
+        </ol>
       )}
-    </>
+    </div>
   );
 }
 

@@ -59,10 +59,9 @@ function SwedishFlights({ data }) {
 
   return (
     <>
-      <h4>Swedish Flights</h4>
-      <p>Total Flights including segment flights: {totalFlights}</p>
-      <p>Percentage of total flights which fly into Sweden: {percentageOfFlights}%</p>
-      <p>Number of flights flying in to Sweden: {count} </p>
+      <p>Total Flights (including segment flights): <strong>{totalFlights}</strong></p>
+      <p>What percentage of total flights fly into Sweden: <strong>{percentageOfFlights}%</strong></p>
+      <p>Number of flights flying into Sweden: <strong>{count}</strong></p>
       {isLoading ? (
         <p>Flight Data Loading....</p>
       ) : (
