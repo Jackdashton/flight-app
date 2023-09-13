@@ -83,22 +83,12 @@ function MorningFlights({ data }) {
 
   return (
     <>
-      <h4>Morning Flights</h4>
+
       {isLoading ? (
         "Data Loading..."
       ) : (
         <div>
           <p>Number of morning flights: {flightCount}</p>
-          <ul>
-            {morningFlights.map((flight, index) => (
-              <li key={index}>
-                <p>{flight.$.reservation}</p>
-                <p>
-                  {flight.$.depair} - {flight.$.destair}
-                </p>
-              </li>
-            ))}
-          </ul>
         </div>
       )}
     </>
