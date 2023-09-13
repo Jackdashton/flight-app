@@ -1,0 +1,31 @@
+.container {
+  list-style: none;
+}
+
+.card {
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto; /* Enable horizontal scrolling if needed */
+}
+
+.column {
+  border: 1px solid black;
+  flex: 1; /* Each column takes up equal space */
+}
+
+.outDep, .outArr, .inDep, .inArr {
+  display: flex;
+  flex-direction: column; /* Display destination columns in a column */
+}
+
+.price, .airline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.destination {
+  
+}

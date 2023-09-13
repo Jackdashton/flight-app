@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styles from "./CheapestFlight.module.css";
 
 function CheapestFlights({ data }) {
   const flightsArray = data.flight;
@@ -88,18 +89,56 @@ function CheapestFlights({ data }) {
   const cheapestTen = sortedArray.slice(0, 10);
 
   return (
-    <>
-      <h4>10 Cheapest Flights</h4>
+    <div>
       {isLoading ? (
         "Data Loading..."
       ) : (
-        <ul>
+        <ul className={styles.container}>
           {cheapestTen.map((flight, index) => {
-            return <li key={index}>£ {flight.priceInGBP}</li>;
+            return (
+              <div key={index} >
+                <li key={index} className={styles.card}>
+                  <div className={styles.column}>
+                    <div className={styles.airline}>
+                      <p>{flight.$.carrier}</p>
+                    </div>
+                  </div>
+                  <div className={styles.column}>
+                    <div className={styles.destination}>
+                      <div className={styles.outDep}>
+                        <p>{flight.$.depair}</p>
+                        <p>{flight.$.outdeparttime}</p>
+                        <p>{flight.$.outdepartdate}</p>
+                      </div>
+                      <div className={styles.outArr}>
+                        <p>{flight.$.destair}</p>
+                        <p>{flight.$.inarrivaltime}</p>
+                        <p>{flight.$.inarrivaldate}</p>
+                      </div>
+                      <div className={styles.inDep}>
+                        <p>{flight.$.depair}</p>
+                        <p>{flight.$.indeparttime}</p>
+                        <p>{flight.$.indepartdate}</p>
+                      </div>
+                      <div className={styles.inArr}>
+                        <p>{flight.$.destair}</p>
+                        <p>{flight.$.inarrivaltime}</p>
+                        <p>{flight.$.inarrivaldate}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.column}>
+                    <div className={styles.price}>
+                      <p>£ {flight.priceInGBP}</p>
+                    </div>
+                  </div>
+                </li>
+              </div>
+            );
           })}
         </ul>
       )}
-    </>
+    </div>
   );
 }
 

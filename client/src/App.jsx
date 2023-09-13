@@ -37,7 +37,7 @@ function App() {
       <h3>Jack Ashton</h3>
       <div className={styles.menu}>
         <button onClick={() => setShowCheapestFlights(!showCheapestFlights)}>
-          Interesting Statistic: What are the 10 Cheapest Flights
+          Interesting Statistic: What are the 10 Cheapest Flights (converted to £)
         </button>
         {showCheapestFlights && <CheapestFlights data={data} />}
 
