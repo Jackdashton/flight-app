@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./CheapestFlight.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlane} from "@fortawesome/free-solid-svg-icons";
 
 function CheapestFlights({ data }) {
   const flightsArray = data.flight;
@@ -96,7 +98,7 @@ function CheapestFlights({ data }) {
         <ul className={styles.container}>
           {cheapestTen.map((flight, index) => {
             return (
-              <div key={index} >
+              <div key={index}>
                 <li key={index} className={styles.card}>
                   <div className={styles.column}>
                     <div className={styles.airline}>
@@ -105,25 +107,23 @@ function CheapestFlights({ data }) {
                   </div>
                   <div className={styles.column}>
                     <div className={styles.destination}>
-                      <div className={styles.outDep}>
-                        <p>{flight.$.depair}</p>
-                        <p>{flight.$.outdeparttime}</p>
-                        <p>{flight.$.outdepartdate}</p>
+                      <div className={styles.out}>
+                        <div className={styles.outDep}>
+                          <p>{flight.$.depair}</p>
+                        </div>
+                        <p>-- <FontAwesomeIcon icon={faPlane} /> --</p>
+                        <div className={styles.outArr}>
+                          <p>{flight.$.destair}</p>
+                        </div>
                       </div>
-                      <div className={styles.outArr}>
-                        <p>{flight.$.destair}</p>
-                        <p>{flight.$.inarrivaltime}</p>
-                        <p>{flight.$.inarrivaldate}</p>
-                      </div>
-                      <div className={styles.inDep}>
-                        <p>{flight.$.depair}</p>
-                        <p>{flight.$.indeparttime}</p>
-                        <p>{flight.$.indepartdate}</p>
-                      </div>
-                      <div className={styles.inArr}>
-                        <p>{flight.$.destair}</p>
-                        <p>{flight.$.inarrivaltime}</p>
-                        <p>{flight.$.inarrivaldate}</p>
+                      <div className={styles.in}>
+                        <div className={styles.inArr}>
+                          <p>{flight.$.destair}</p>
+                        </div>
+                        <p>-- <FontAwesomeIcon icon={faPlane} rotation={180} /> --</p>
+                        <div className={styles.inDep}>
+                          <p>{flight.$.depair}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
