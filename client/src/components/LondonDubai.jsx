@@ -82,7 +82,6 @@ function LondonDubai({ data }) {
 
   return (
     <>
-      <h4>Average journey time between LHR and DXB</h4>
       {isLoading ? ("Data Loading...") : (
         <p>The average journey takes: {hours} Hours {mins} Minutes</p>
       )}

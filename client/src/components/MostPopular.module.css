@@ -1,0 +1,7 @@
+.container ul {
+  list-style: none;
+}
+
+.container li {
+  margin: 10px;
+}
