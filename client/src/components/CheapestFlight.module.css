@@ -14,14 +14,14 @@
   margin-bottom: 10px;
   display: flex;
   flex-wrap: nowrap;
-  overflow: auto; /* Enable horizontal scrolling if needed */
+  overflow: auto; 
   border: 1px solid black;
   border-radius: 8px;
   background-color: rgb(250, 249, 246);
 }
 
 .column {
-  flex: 1; /* Each column takes up equal space */
+  flex: 1;
 }
 
 .outDep,
@@ -29,7 +29,7 @@
 .inDep,
 .inArr {
   display: flex;
-  flex-direction: column; /* Display destination columns in a column */
+  flex-direction: column;
 }
 
 .price,
