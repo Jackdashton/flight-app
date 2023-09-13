@@ -1,0 +1,68 @@
+.container {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.container ul {
+  list-style: none;
+  margin: 0px !important;
+}
+
+.card {
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto; /* Enable horizontal scrolling if needed */
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: rgb(250, 249, 246);
+}
+
+.column {
+  flex: 1; /* Each column takes up equal space */
+}
+
+.outDep,
+.outArr,
+.inDep,
+.inArr {
+  display: flex;
+  flex-direction: column; /* Display destination columns in a column */
+}
+
+.price,
+.airline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.price {
+  border-left: 1px dashed grey;
+}
+
+.airline {
+  border-right: 1px dashed grey;
+}
+
+.destination p {
+  margin: 0px;
+}
+
+.out {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 15px;
+  margin-right: 15px;
+  align-items: center;
+}
+
+.in {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 15px;
+  margin-right: 15px;
+}
