@@ -7,6 +7,7 @@ function CheapestFlights({ data }) {
   const [currencyRates, setCurrencyRates] = React.useState({});
   const [convertedFlightsArray, setConvertedFlightsArray] = React.useState([]);
   const [sortedArray, setSortedArray] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     function gatherCurrencies() {
@@ -58,7 +59,8 @@ function CheapestFlights({ data }) {
           } else if (currencyRates[originalCurrency]) {
             // Obtain conversion rate for currency
             const conversionRate = currencyRates[originalCurrency];
-            const priceInGBP = Math.round((originalPrice * conversionRate)*100)/100;
+            const priceInGBP =
+              Math.round(originalPrice * conversionRate * 100) / 100;
             return {
               ...flight,
               priceInGBP,
@@ -70,6 +72,7 @@ function CheapestFlights({ data }) {
         setConvertedFlightsArray(updatedFlightsArray);
       }
     }
+    setIsLoading(false);
     convertToGBP();
   }, [flightsArray, currencies, currencyRates]);
 
@@ -87,11 +90,15 @@ function CheapestFlights({ data }) {
   return (
     <>
       <h4>10 Cheapest Flights</h4>
-      <ul>
-        {cheapestTen.map((flight, index) => {
-          return <li key={index}>£ {flight.priceInGBP}</li>;
-        })}
-      </ul>
+      {isLoading ? (
+        "Data Loading..."
+      ) : (
+        <ul>
+          {cheapestTen.map((flight, index) => {
+            return <li key={index}>£ {flight.priceInGBP}</li>;
+          })}
+        </ul>
+      )}
     </>
   );
 }
