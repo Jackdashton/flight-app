@@ -4,7 +4,7 @@
 
 Welcome to the Flight App. 
 
-Want to see the test without having to download and install? (Link)
+Want to see the assessment without having to download and install? [(Flight App)](https://flight-app.jackashton.dev/)
 
 ## Table of Contents
 
@@ -42,7 +42,7 @@ To get started with the project, follow these installation instructions:
 2. Install the dependencies:
 
    ```
-   cd save-the-pony
+   cd flight-app
    npm install
    ```
    ### Dependencies
@@ -55,7 +55,7 @@ To get started with the project, follow these installation instructions:
    - React-DOM 18.2.0
    - eslint 8.45.0
    - vite 4.4.5
-   - 
+
 3. Run the project locally:
 
    ```
