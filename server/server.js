@@ -18,11 +18,8 @@ app.get("/api/flights", (req, res) => {
       res.status(500).json({ error: "Internal server error" });
       return;
     }
-    // Parse XML to JSON using the xml2js library
     const parser = new xml2js.Parser();
-    // new instance of the parser class
     parser.parseString(data, (xmlErr, result) => {
-      // parseString method - result contains parsed data if successful
       if (xmlErr) {
         console.error(xmlErr);
         res.status(500).json({ error: "Failed to parse XML" });
@@ -30,7 +27,6 @@ app.get("/api/flights", (req, res) => {
       }
 
       const flights = result.flights;
-      // extracts the flights property from result object (the parsed XML data)
       res.json(flights);
     });
   });

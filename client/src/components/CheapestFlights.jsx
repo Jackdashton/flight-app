@@ -14,6 +14,7 @@ function CheapestFlights({ data }) {
 
   React.useEffect(() => {
     function gatherCurrencies() {
+      // Object to store all currency types and how many times they appear.
       const currencies = {};
 
       if (flightsArray) {
