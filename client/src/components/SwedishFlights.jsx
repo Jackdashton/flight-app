@@ -24,11 +24,15 @@ function SwedishFlights({ data }) {
       flightsArray.forEach((flight) => {
         // Check to see which flights have at least one segment
         const hasSegments = flight.segments && flight.segments[0].segment;
-        // If flight has no segments, add to total flight count
+        // If flight has no segments, add one if there is no return leg, add two if there is a return leg
         if (!hasSegments) {
-          totalFlightsCount++;
+          if (flight.$.indepartdate === "") {
+            totalFlightsCount++;
+          } else {
+            totalFlightsCount += 2;
+          }
         } else if (hasSegments) {
-          // If there are segments, add 1 to total flights for each segment
+          // Check if Segments exist and whether it's an array and if so add one for every flight
           const segments = flight.segments[0].segment;
           totalFlightsCount += segments.length;
         }
