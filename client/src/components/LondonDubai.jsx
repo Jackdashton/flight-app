@@ -95,7 +95,7 @@ function LondonDubai({ data }) {
         "Data Loading..."
       ) : (
         <p>
-          The average journey takes: {hours} Hours {mins} Minutes
+          The average journey takes: <strong>{hours} Hours {mins} Minutes</strong>
         </p>
       )}
     </>

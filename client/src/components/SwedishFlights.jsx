@@ -87,17 +87,15 @@ function SwedishFlights({ data }) {
           {swedishFlights.map((flight, index) => (
             <li key={index} className={styles.card}>
               <div className={styles.column}>
-                <div className={styles.destination}>
-                  <div className={styles.out}>
-                    <div className={styles.outDep}>
-                      <p>{flight.$.depair}</p>
-                    </div>
-                    <p>
-                      -- <FontAwesomeIcon icon={faPlane} /> --
-                    </p>
-                    <div className={styles.outArr}>
-                      <p>{flight.$.destair}</p>
-                    </div>
+                <div className={styles.out}>
+                  <div className={styles.outDep}>
+                    <p>{flight.$.depair}</p>
+                  </div>
+                  <p>
+                    -- <FontAwesomeIcon icon={faPlane} /> --
+                  </p>
+                  <div className={styles.outArr}>
+                    <p>{flight.$.destair}</p>
                   </div>
                 </div>
               </div>
