@@ -22,12 +22,23 @@ Want to see the test without having to download and install? (Link)
 
 ## Tech Stack
 
-The project utilizes the following technologies:
+The project utilises the following technologies:
 
 - React
 - Vite
+- JavaScript
+- HTML / CSS
 
 ## Installation 
+
+To get started with the project, follow these installation instructions:
+
+1. Clone the repository:
+
+   ```
+   git clone https://github.com/Jackdashton/flight-app.git
+   ```
+
 
 ## Code Organisation
 
