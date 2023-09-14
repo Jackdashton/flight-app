@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import convertToDateTime from "../utils/ConvertToDateTime";
+import ConvertToDateTime from "../utils/ConvertToDateTime";
 
 function LondonDubai({ data }) {
   const flightsArray = data.flight;
@@ -31,11 +31,11 @@ function LondonDubai({ data }) {
       const outboundDurations = [];
 
       dubaiFlights.forEach((flight) => {
-        const depDateTime = convertToDateTime(
+        const depDateTime = ConvertToDateTime(
           flight.$.outdepartdate,
           flight.$.outdeparttime
         );
-        const arrDateTime = convertToDateTime(
+        const arrDateTime = ConvertToDateTime(
           flight.$.outarrivaldate,
           flight.$.outarrivaltime
         );
@@ -57,11 +57,11 @@ function LondonDubai({ data }) {
       const inboundDurations = [];
 
       dubaiFlights.forEach((flight) => {
-        const depDateTime = convertToDateTime(
+        const depDateTime = ConvertToDateTime(
           flight.$.indepartdate,
           flight.$.indeparttime
         );
-        const arrDateTime = convertToDateTime(
+        const arrDateTime = ConvertToDateTime(
           flight.$.inarrivaldate,
           flight.$.inarrivaltime
         );

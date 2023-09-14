@@ -1,19 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ConvertToTime from "../utils/ConvertToTime";
 
 function MorningFlights({ data }) {
   const flightsArray = data.flight;
   const [isLoading, setIsLoading] = React.useState(true);
   const [flightCount, setFlightCount] = React.useState(0);
   const [morningFlights, setMorningFlights] = React.useState([]);
-
-  // Convert the data from string to time/date
-  function convertToTime(timeString) {
-    const [hours, minutes, seconds] = timeString.split(":");
-    const date = new Date();
-    date.setHours(hours, minutes, seconds, 0); //Date to 0 to get time only
-    return date;
-  }
 
   React.useEffect(() => {
     function getMorningFlights(flightsArray) {
@@ -29,8 +22,8 @@ function MorningFlights({ data }) {
         setIsLoading(false);
         for (const flight of flightsArray) {
           const hasSegments = flight.segments && flight.segments[0].segment;
-          const inDepartTime = convertToTime(flight.$.indeparttime);
-          const outDepartTime = convertToTime(flight.$.outdeparttime);
+          const inDepartTime = ConvertToTime(flight.$.indeparttime);
+          const outDepartTime = ConvertToTime(flight.$.outdeparttime);
 
           if (!hasSegments) {
             // if there are no segments
@@ -47,7 +40,7 @@ function MorningFlights({ data }) {
               let hasMorningSegment = false;
 
               for (const segment of segments) {
-                const segmentDepartTime = convertToTime(segment.$.deptime);
+                const segmentDepartTime = ConvertToTime(segment.$.deptime);
 
                 if (segmentDepartTime < noon) {
                   hasMorningSegment = true;
