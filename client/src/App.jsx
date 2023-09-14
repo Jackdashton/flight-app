@@ -7,7 +7,8 @@ import CheapestFlights from "./components/CheapestFlights";
 import MostPopular from "./components/MostPopular";
 import React from "react";
 
-const ENDPOINT = "http://localhost:3000/api/flights";
+// Vite convention
+const ENDPOINT = import.meta.env.VITE_REACT_APP_API_URL;
 
 function App() {
   const [data, setData] = React.useState({});
