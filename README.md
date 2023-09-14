@@ -34,7 +34,7 @@ The project utilizes the following technologies:
 ## Main Components and Architecturial Decisions 
 
 ## Screenshots
-![Menu](https://github.com/Jackdashton/flight-app/assets/122602433/1a023533-867f-4535-a016-1108936ed769)
+![Menu](https://github.com/Jackdashton/flight-app/assets/122602433/1a023533-867f-4535-a016-1108936ed769 )
 <br />
 <br />
 ![ScreenShot 2](https://github.com/Jackdashton/flight-app/assets/122602433/f31ce8f5-1293-44e2-99c3-6a78a290d326)
