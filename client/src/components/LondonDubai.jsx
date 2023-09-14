@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import convertToDateTime from "../utils/ConvertToDateTime";
 
 function LondonDubai({ data }) {
   const flightsArray = data.flight;
@@ -7,14 +8,6 @@ function LondonDubai({ data }) {
   const [flights, setFlights] = React.useState([]);
   const [outboundDurations, setOutboundDurations] = React.useState([]);
   const [inboundDurations, setInboundDurations] = React.useState([]);
-
-  // Convert arrival and departure dates and times from string to time/date
-  function convertToDateTime(dateString, timeString) {
-    const [year, month, day] = dateString.split("-").map(Number);
-    const [hours, minutes, seconds] = timeString.split(":");
-    const date = new Date(year, month - 1, day, hours, minutes, seconds);
-    return date;
-  }
 
   // UseEffect hook to run on mount.
   React.useEffect(() => {
