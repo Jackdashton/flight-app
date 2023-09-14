@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./CheapestFlight.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlane} from "@fortawesome/free-solid-svg-icons";
+import CurrencyRates from "../utils/CurrencyRates"
 
 function CheapestFlights({ data }) {
   const flightsArray = data.flight;
@@ -29,21 +30,8 @@ function CheapestFlights({ data }) {
   }, [flightsArray]);
 
   React.useEffect(() => {
-    function currencyRates() {
-      let currencyTypes = Object.keys(currencies);
-      const currencyRates = {};
-
-      // Define currency conversion rates as of Jan 2018
-      currencyRates[currencyTypes[0]] = 1.0; // GBP - original
-      currencyRates[currencyTypes[1]] = 0.5769; // AUD
-      currencyRates[currencyTypes[2]] = 0.0398; // ARS
-      currencyRates[currencyTypes[3]] = 0.2015; // AED
-      currencyRates[currencyTypes[4]] = 0.0597; // ZAR
-      currencyRates[currencyTypes[5]] = 0.8889; // EUR
-
-      setCurrencyRates(currencyRates);
-    }
-    currencyRates();
+    const updatedCurrencyRates = CurrencyRates(currencies);
+    setCurrencyRates(updatedCurrencyRates);
   }, [currencies]);
 
   React.useEffect(() => {
