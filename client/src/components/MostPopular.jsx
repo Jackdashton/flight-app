@@ -42,8 +42,9 @@ function MostPopular({ data }) {
 
   return (
     <div className={styles.airportContainer}>
+      {/* Terenary which will only render the data if the function has run for better UX*/}
       {isLoading ? (
-        <p>Data Loading.....</p>
+        <p>Data Loading...</p>
       ) : (
         <ol>
           {topAirports.map((airport, index) => (

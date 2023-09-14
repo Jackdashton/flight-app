@@ -16,16 +16,19 @@ function LondonDubai({ data }) {
     return date;
   }
 
+  // UseEffect hook to run on mount.
   React.useEffect(() => {
     const dubaiFlights = [];
 
     if (flightsArray) {
       flightsArray.map((flight) => {
+        // Gather all LHR to DXB flights in an array
         if (flight.$.destair === "DXB" && flight.$.depair === "LHR") {
           dubaiFlights.push(flight);
         }
       });
     }
+    // Store in state for easy access to array throughout component.
     setFlights(dubaiFlights);
   }, [flightsArray]);
 
@@ -35,8 +38,14 @@ function LondonDubai({ data }) {
       const outboundDurations = [];
 
       dubaiFlights.forEach((flight) => {
-        const depDateTime = convertToDateTime(flight.$.outdepartdate, flight.$.outdeparttime);
-        const arrDateTime = convertToDateTime(flight.$.outarrivaldate, flight.$.outarrivaltime);
+        const depDateTime = convertToDateTime(
+          flight.$.outdepartdate,
+          flight.$.outdeparttime
+        );
+        const arrDateTime = convertToDateTime(
+          flight.$.outarrivaldate,
+          flight.$.outarrivaltime
+        );
         // -4 Hours to account for GMT-GST (Can be modified to support BST (-3))
         // Convert to hours from milliseconds and round to 2dp
         const duration =
@@ -55,8 +64,14 @@ function LondonDubai({ data }) {
       const inboundDurations = [];
 
       dubaiFlights.forEach((flight) => {
-        const depDateTime = convertToDateTime(flight.$.indepartdate, flight.$.indeparttime);
-        const arrDateTime = convertToDateTime(flight.$.inarrivaldate, flight.$.inarrivaltime);
+        const depDateTime = convertToDateTime(
+          flight.$.indepartdate,
+          flight.$.indeparttime
+        );
+        const arrDateTime = convertToDateTime(
+          flight.$.inarrivaldate,
+          flight.$.inarrivaltime
+        );
         // +4 Hours to account for GMT-GST (Can be modified to support BST (+3))
         // For this exercise, as no. in = out , same answer
         const duration =
@@ -76,14 +91,19 @@ function LondonDubai({ data }) {
   allDurations.map((number) => {
     total = total + number;
   });
-  const avgDurationInHours = Math.round((total/allDurations.length)*100) / 100;
+  const avgDurationInHours =
+    Math.round((total / allDurations.length) * 100) / 100;
   const hours = Math.floor(avgDurationInHours);
-  const mins = Math.round((avgDurationInHours - hours) * 60)
+  const mins = Math.round((avgDurationInHours - hours) * 60);
 
   return (
     <>
-      {isLoading ? ("Data Loading...") : (
-        <p>The average journey takes: {hours} Hours {mins} Minutes</p>
+      {isLoading ? (
+        "Data Loading..."
+      ) : (
+        <p>
+          The average journey takes: {hours} Hours {mins} Minutes
+        </p>
       )}
     </>
   );
