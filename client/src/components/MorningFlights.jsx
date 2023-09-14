@@ -14,7 +14,6 @@ function MorningFlights({ data }) {
       const noon = new Date();
       noon.setHours(12, 0, 0);
 
-      // Set count to 0
       let morningFlightCount = 0;
       const morningFlights = [];
 
@@ -77,11 +76,7 @@ function MorningFlights({ data }) {
       {isLoading ? (
         "Data Loading..."
       ) : (
-        <div>
-          <p>
-            Number of morning flights: <strong>{flightCount}</strong>
-          </p>
-        </div>
+        <p>Number of morning flights: <strong>{flightCount}</strong></p>
       )}
     </>
   );
