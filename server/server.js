@@ -8,7 +8,7 @@ const cors = require("cors");
 app.listen(3000);
 
 // Middleware - allow requests from different ports (React port:5173)
-app.use(cors());
+app.use(cors({origin: "https://flight-app.jackashton.dev/"}));
 
 app.get("/api/flights", (req, res) => {
   fs.readFile("flighdata_A.xml", "utf-8", (err, data) => {
