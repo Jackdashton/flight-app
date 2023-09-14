@@ -30,6 +30,7 @@ function CheapestFlights({ data }) {
   }, [flightsArray]);
 
   React.useEffect(() => {
+    // Use utility function  - CurrencyRates
     const updatedCurrencyRates = CurrencyRates(currencies);
     setCurrencyRates(updatedCurrencyRates);
   }, [currencies]);
