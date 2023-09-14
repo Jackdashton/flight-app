@@ -17,6 +17,8 @@
   border: 1px solid black;
   border-radius: 8px;
   background-color: rgb(250, 249, 246);
+  color: #3c3c39;
+  font-weight: 600;
 }
 
 .column {

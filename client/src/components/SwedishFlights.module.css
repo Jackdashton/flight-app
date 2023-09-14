@@ -17,11 +17,13 @@
 .card {
   margin-bottom: 10px;
   display: flex;
+  color: #3c3c39;
   flex-wrap: nowrap;
   overflow: auto;
   border: 1px solid black;
   border-radius: 8px;
   background-color: rgb(250, 249, 246);
+  font-weight: 500;
 }
 
 .answers {
