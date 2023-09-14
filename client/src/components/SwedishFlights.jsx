@@ -18,7 +18,7 @@ function SwedishFlights({ data }) {
   React.useEffect(() => {
     function getSwedishFlights(flightsArray) {
       let flightCount = 0;
-      let totalFlights = 0;
+      let totalFlightsCount = 0;
       const swedishFlightsData = [];
 
       flightsArray.forEach((flight) => {
@@ -26,11 +26,11 @@ function SwedishFlights({ data }) {
         const hasSegments = flight.segments && flight.segments[0].segment;
         // If flight has no segments, add to total flight count
         if (!hasSegments) {
-          totalFlights++;
+          totalFlightsCount++;
         } else if (hasSegments) {
           // If there are segments, add 1 to total flights for each segment
           const segments = flight.segments[0].segment;
-          totalFlights += segments.length;
+          totalFlightsCount += segments.length;
         }
 
         // If the destination airport is in Sweden, add the flight to the array.
@@ -49,7 +49,7 @@ function SwedishFlights({ data }) {
         }
       });
       setCount(flightCount);
-      setTotalFlights(totalFlights);
+      setTotalFlights(totalFlightsCount);
       setSwedishFlights(swedishFlightsData);
       setIsLoading(false);
     }
