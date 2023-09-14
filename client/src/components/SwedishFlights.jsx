@@ -30,9 +30,7 @@ function SwedishFlights({ data }) {
         } else if (hasSegments) {
           // If there are segments, add 1 to total flights for each segment
           const segments = flight.segments[0].segment;
-          segments.map((segment) => {
-            totalFlights++;
-          });
+          totalFlights += segments.length;
         }
 
         // If the destination airport is in Sweden, add the flight to the array.
