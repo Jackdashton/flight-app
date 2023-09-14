@@ -7,37 +7,33 @@ function MostPopular({ data }) {
   const [topAirports, setTopAirports] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
+  // UseEffect hook to run on mount.
   React.useEffect(() => {
     if (flightsArray) {
-      // Create object for airport occurences
+      // Object to store all airports and occurences "ACE : 61"
       const destOccurences = {};
 
       flightsArray.forEach((flight) => {
-        // For flights with segments array and containing at least one element
+        // If flights have segments run code for each segment
         if (flight.segments) {
           flight.segments[0].segment.forEach((segment) => {
             const destAirport = segment.$.arrcode;
-            // destAirport key - if key exists + 1 , or new key + 1
             destOccurences[destAirport] =
               (destOccurences[destAirport] || 0) + 1;
-            // console.log(destOccurences);
-            // console.log("done");
           });
         } else if (!flight.$.segments) {
-          // If no segments, count destair occurences
+          // If no segments, run code for the flight
           const destAirport = flight.$.destair;
           destOccurences[destAirport] = (destOccurences[destAirport] || 0) + 1;
-          // console.log(destOccurences);
-          // console.log("no segments")
         }
       });
 
-      // Sort Airports
+      // Create variable containing descending ordered list
       const sortedAirports = Object.keys(destOccurences).sort(
         (a, b) => destOccurences[b] - destOccurences[a]
       );
 
-      // Top 10
+      // Array to hold airport names, occurences no longer required.
       const topTen = sortedAirports.slice(0, 10);
       setTopAirports(topTen);
       setIsLoading(false);

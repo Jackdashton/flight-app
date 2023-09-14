@@ -17,7 +17,9 @@ function App() {
   const [showSwedishFlights, setShowSwedishFlights] = React.useState(false);
   const [showMorningFlights, setShowMorningFlights] = React.useState(false);
 
+  // useEffect hook to allow fetch on mount, empty dependencies as no risk of stale data.
   React.useEffect(() => {
+    // Flights data is fetched with an async/await function to allow all data to be gathered before continuing
     async function fetchData() {
       try {
         const response = await fetch(ENDPOINT);
