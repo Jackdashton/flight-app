@@ -41,6 +41,7 @@ The project utilises the following technologies:
 - JavaScript (ES6)
 - HTML / CSS
 - Node.js (16.15.1)
+- Express (4.18.2)
 
 ## Installation 
 
