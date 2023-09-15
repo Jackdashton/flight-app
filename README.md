@@ -53,11 +53,26 @@ To get started with the project, follow these installation instructions:
    ```
 
 2. Install the dependencies:
+   
+   a)
+   ```
+   cd flight-app/server
+   npm init -y
+   npm install express node xml2js
+   npm i --save-dev nodemon
+   ```
+   b) 
+   ```
+   cd flight-app/client
+   npm install vite
+   npm install --save @fortawesome/fontawesome-free
+   ```
+   c) In the Client folder, create an .env folder with the following code in it:
+   ```
+   VITE_REACT_APP_API_URL=https://flight-app-backend-f6c8773529d3.herokuapp.com/api/flights
+   ```
 
-   ```
-   cd flight-app
-   npm install
-   ```
+
    ### Dependencies
    * fontawesome (6.4.2)
    * cors (2.8.5)
