@@ -15,8 +15,7 @@ The Flight App is a project I created for a coding test which revolves around cr
 *	What are the 10 cheapest flights (converted to £)?
 
 The initial set of four questions constituted the core tasks assigned, while the fifth question was introduced as a captivating metric. It was selected due to the importance of price assessment in the evaluation of any commodity.
-Finally, the web application presents the data in an easy to follow way. 
-
+Finally, the web application presents the data in an easy-to-follow way. 
 
 ## Table of Contents
 
@@ -67,7 +66,7 @@ To get started with the project, follow these installation instructions:
    npm install vite
    npm install --save @fortawesome/fontawesome-free
    ```
-   c) In the Client folder, create an .env folder with the following code in it:
+   c) In the Client folder, create an .env file with the following code in it:
    ```
    VITE_REACT_APP_API_URL=https://flight-app-backend-f6c8773529d3.herokuapp.com/api/flights
    ```
@@ -144,9 +143,9 @@ I was able to carry out some basic unit testing with the goal of gaining experie
   
 * In the future, I would like to add more testing.
   
-* I would like to build out the backend and do a lot of the logic and filtering on the backend then create multiple endpoints, allowing the components in React to be purely for rendering the JSX. This would allow the code to be cleaner, and potentially facilitate conditional rendering.
+* I would like to build out the backend and do much of logic and filtering on the backend then create multiple endpoints, allowing the components in React to be purely for rendering the JSX. This would allow the code to be cleaner, and potentially facilitate conditional rendering.
   
-* I would pass the flightsArray as a prop to the components and negate the need to declare a new variable in each component. 
+* I would pass the flightsArray as a prop to the components and eliminate the need to declare a new variable in each component. 
 
 ## Key Learnings 
 
