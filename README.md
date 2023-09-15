@@ -72,17 +72,12 @@ To get started with the project, follow these installation instructions:
    VITE_REACT_APP_API_URL=https://flight-app-backend-f6c8773529d3.herokuapp.com/api/flights
    ```
 
-
    ### Dependencies
    * fontawesome (6.4.2)
    * cors (2.8.5)
-   * express (4.18.2)
    * xml2js (0.6.2)
    * nodemon (3.0.1)
-   * React (18.2.0)
-   * React-DOM (18.2.0)
    * eslint (8.45.0)
-   * vite (4.4.5)
    * jsdom (22.1.0)
    * vitest (0.34.4)
    * react testing library (14.0.0)
@@ -106,7 +101,6 @@ To get started with the project, follow these installation instructions:
    The app should now be running on http://localhost:5173/.
    ```
 
-
 ## Code Organisation
 
 The code was organised into several directories and files, each with a specific purpose:
@@ -121,7 +115,8 @@ The code was organised into several directories and files, each with a specific 
    - `public`: Contains images to be used throughout the application. 
    - `src`: Home to the main source code of the application, organized into several subdirectories and files for better organization and separation of concerns
        - `components`: Contains the main React components and their respective modular CSS files.
-       - `utils`: Contains the helper functions and Hooks to be used in conjunction with the main components. 
+       - `utils`: Contains the helper functions and Hooks to be used in conjunction with the main components.
+       - `test`: Contains the test file 
    - `data`: Holds any large datasets to be used throughout the application. 
 
 ## Screenshots
@@ -140,7 +135,6 @@ The code was organised into several directories and files, each with a specific 
 I was able to carry out some basic unit testing with the goal of gaining experience writing tests using the React Testing Library.
 
 ![Testing](https://github.com/Jackdashton/flight-app/assets/122602433/45e61b7a-e23e-467b-bece-3cf239553de7)
-
 
 ## Future Improvements
 
