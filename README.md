@@ -83,8 +83,14 @@ To get started with the project, follow these installation instructions:
    * React-DOM (18.2.0)
    * eslint (8.45.0)
    * vite (4.4.5)
+  
+3. Add testing dependencies 
+   ```
+   npm install jsdom --save-dev
 
-3. Run the project locally:
+   npm install vitest --save-dev
+   ```
+4. Run the project locally:
 
    ```
    vite
