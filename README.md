@@ -83,6 +83,9 @@ To get started with the project, follow these installation instructions:
    * React-DOM (18.2.0)
    * eslint (8.45.0)
    * vite (4.4.5)
+   * jsdom (22.1.0)
+   * vitest (0.34.4)
+   * react testing library (14.0.0)
   
 3. Add testing dependencies 
    ```
@@ -134,7 +137,10 @@ The code was organised into several directories and files, each with a specific 
 ![ScreenShot 4](https://github.com/Jackdashton/flight-app/assets/122602433/b4f6f8cf-2f7a-4a6c-afc1-59f5cf71859a)
 
 ## Testing
-Given the time constraints, testing is currently TBC. 
+I was able to carry out some basic unit testing with the goal of gaining experience writing tests using the React Testing Library.
+
+![Testing](https://github.com/Jackdashton/flight-app/assets/122602433/45e61b7a-e23e-467b-bece-3cf239553de7)
+
 
 ## Future Improvements
 
@@ -142,7 +148,7 @@ Given the time constraints, testing is currently TBC.
   
 * Initially, the implementation of the MorningFlights component was designed to serve a dual purpose: counting the morning flights and rendering a comprehensive list of all flights in the morning. However, due to time constraints, the full implementation, including conditional rendering, could not be completed. As a result, a design decision was made to exclude the rendering of the complete list, and only the count of morning flights is displayed as a result.
   
-* In the future, I would like to add testing.
+* In the future, I would like to add more testing.
   
 * I would like to build out the backend and do a lot of the logic and filtering on the backend then create multiple endpoints, allowing the components in React to be purely for rendering the JSX. This would allow the code to be cleaner, and potentially facilitate conditional rendering.
   
