@@ -91,6 +91,9 @@ To get started with the project, follow these installation instructions:
    npm install jsdom --save-dev
 
    npm install vitest --save-dev
+
+   npm install @testing-library/react @testing-library/jest-dom --save-dev
+   
    ```
 4. Run the project locally:
 
