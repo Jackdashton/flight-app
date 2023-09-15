@@ -62,7 +62,7 @@ function App() {
 
         <button onClick={() => setShowCheapestFlights(!showCheapestFlights)}>
           Interesting Statistic: What are the 10 Cheapest Flights (converted to
-          £)
+          £)?
         </button>
         {showCheapestFlights && <CheapestFlights data={data} />}
       </div>
