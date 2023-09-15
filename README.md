@@ -80,6 +80,21 @@ To get started with the project, follow these installation instructions:
 
 ## Code Organisation
 
+The code was organised into several directories and files, each with a specific purpose:
+
+- `Server`:
+   - `server`:
+   - `flightdata`:
+- `Client`:
+   - `public`:
+   - `src`: 
+       - `components`: 
+       - `utils`:
+   - `data`:  
+
+
+
+
 ## Main Components and Architecturial Decisions 
 
 ## Screenshots
