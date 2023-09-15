@@ -120,6 +120,7 @@ The useState and useEffect Hooks are critical for maintaining the modularity of 
 ![ScreenShot 4](https://github.com/Jackdashton/flight-app/assets/122602433/b4f6f8cf-2f7a-4a6c-afc1-59f5cf71859a)
 
 ## Testing
+Given the time constraints, testing is currently TBC. 
 
 ## Future Improvements
 
@@ -135,11 +136,9 @@ The useState and useEffect Hooks are critical for maintaining the modularity of 
 
 ## Key Learnings 
 
+While I have prior experience with React, the majority of my previous projects have involved relatively straightforward frontend applications. This project represented my first attempt at creating a server and making API calls to it, offering a valuable opportunity to explore file architecture and the managing of HTTP requests and responses.
 
+Given that my code will be reviewed and assessed by others, this presented a valuable occasion for me to consider the comments and documentation I provided, as well as the clarity of my code. This experience led to learning opportunities regarding refactoring and general code organization.
 
 ## Project Status
 Status: Complete
-
-
-
-
