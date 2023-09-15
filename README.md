@@ -36,9 +36,9 @@ Finally, the web application presents the data in an easy to follow way.
 
 The project utilises the following technologies:
 
-- React
-- Vite
-- JavaScript
+- React (18.2.0)
+- Vite (4.4.5)
+- JavaScript (ES6)
 - HTML / CSS
 
 ## Installation 
@@ -58,15 +58,15 @@ To get started with the project, follow these installation instructions:
    npm install
    ```
    ### Dependencies
-   - fontawesome 6.4.2
-   - cors 2.8.5
-   - express 4.18.2
-   - xml2js 0.6.2
-   - nodemon 3.0.1
-   - React 18.2.0
-   - React-DOM 18.2.0
-   - eslint 8.45.0
-   - vite 4.4.5
+   * fontawesome 6.4.2
+   * cors 2.8.5
+   * express 4.18.2
+   * xml2js 0.6.2
+   * nodemon 3.0.1
+   * React 18.2.0
+   * React-DOM 18.2.0
+   * eslint 8.45.0
+   * vite 4.4.5
 
 3. Run the project locally:
 
