@@ -82,15 +82,18 @@ To get started with the project, follow these installation instructions:
 
 The code was organised into several directories and files, each with a specific purpose:
 
-- `Server`:
-   - `server`:
-   - `flightdata`:
-- `Client`:
-   - `public`:
-   - `src`: 
-       - `components`: 
-       - `utils`:
-   - `data`:  
+- `Server`: Contains all files relating to the server-side. 
+  
+   - `server`: A script which sets up a web server using Express.js
+   - `flightdata`: The original flight data XML file.
+     
+- `Client`: Contains all files relating to the client-side. 
+  
+   - `public`: Contains images to be used throughout the application. 
+   - `src`: Home to the main source code of the application, organized into several subdirectories and files for better organization and separation of concerns
+       - `components`: Contains the main React components and their respective modular CSS files.
+       - `utils`: Contains the helper functions and Hooks to be used in conjunction with the main components. 
+   - `data`: Holds any large datasets to be used throughout the application. 
 
 
 
