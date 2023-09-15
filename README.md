@@ -86,6 +86,8 @@ To get started with the project, follow these installation instructions:
   
 3. Add testing dependencies 
    ```
+   cd flight-app/client
+   
    npm install jsdom --save-dev
 
    npm install vitest --save-dev
