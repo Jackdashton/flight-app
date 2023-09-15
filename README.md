@@ -25,7 +25,6 @@ Finally, the web application presents the data in an easy to follow way.
 * [Tech Stack](#tech-stack)
 * [Installation](#installation)
 * [Code Organisation](#code-organisation)
-* [Main Components and Architecturial Decisions](#main-components-and-architecturial-decisions)
 * [Screenshots](#screenshots)
 * [Testing](#testing)
 * [Future Improvements](#future-improvements)
@@ -95,18 +94,6 @@ The code was organised into several directories and files, each with a specific 
        - `components`: Contains the main React components and their respective modular CSS files.
        - `utils`: Contains the helper functions and Hooks to be used in conjunction with the main components. 
    - `data`: Holds any large datasets to be used throughout the application. 
-
-
-
-
-## Main Components and Architecturial Decisions
-Some of the main components and important architectural decisions in the project include:
-
-1. **React useState Hook**: The useState hook is used throughout the components to store and update the state variables and use them throughout the components. 
-   
-2. **React useEffect Hook**: The useEffect hook wraps the majority of the functions within the components in order to trigger the data fetching process when the components mount, ensuring that the data is fetched and rendered in the component.
-
-The useState and useEffect Hooks are critical for maintaining the modularity of React appilications, which in turn add to the future flexibility of the project; features and components can be added easily. 
 
 ## Screenshots
 ![Menu](https://github.com/Jackdashton/flight-app/assets/122602433/1a023533-867f-4535-a016-1108936ed769 )
