@@ -123,7 +123,19 @@ The useState and useEffect Hooks are critical for maintaining the modularity of 
 
 ## Future Improvements
 
+* I would refactor my ConvertToDateTime and ConvertToTime utility functions to allow them to work as one function.
+  
+* Initially, the implementation of the MorningFlights component was designed to serve a dual purpose: counting the morning flights and rendering a comprehensive list of all flights in the morning. However, due to time constraints, the full implementation, including conditional rendering, could not be completed. As a result, a design decision was made to exclude the rendering of the complete list, and only the count of morning flights is displayed as a result.
+  
+* In the future, I would like to add testing.
+  
+* I would like to build out the backend and do a lot of the logic and filtering on the backend then create multiple endpoints, allowing the components in React to be purely for rendering the JSX. This would allow the code to be cleaner, and potentially facilitate conditional rendering.
+  
+* I would pass the flightsArray as a prop to the components and negate the need to declare a new variable in each component. 
+
 ## Key Learnings 
+
+
 
 ## Project Status
 Status: Complete
