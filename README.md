@@ -4,7 +4,7 @@
 
 Welcome to the Flight App. 
 
-Want to see the assessment without having to download and install? [(Flight App)](https://flight-app.jackashton.dev/)
+Want to see the assessment without having to download and install? [click here 👈]((https://flight-app.jackashton.dev/))
 
 The Flight App is a project I created for a coding test which revolves around creating an API to provide access to a dataset containing two weeks of real flight information. The app aims to perform basic analysis on the retrieved data and answer the following questions:
 
