@@ -98,7 +98,14 @@ The code was organised into several directories and files, each with a specific 
 
 
 
-## Main Components and Architecturial Decisions 
+## Main Components and Architecturial Decisions
+Some of the main components and important architectural decisions in the project include:
+
+1. **React useState Hook**: The useState hook is used throughout the components to store and update the state variables and use them throughout the components. 
+   
+2. **React useEffect Hook**: The useEffect hook wraps the majority of the functions within the components in order to trigger the data fetching process when the components mount, ensuring that the data is fetched and rendered in the component.
+
+The useState and useEffect Hooks are critical for maintaining the modularity of React appilications, which in turn add to the future flexibility of the project; features and components can be added easily. 
 
 ## Screenshots
 ![Menu](https://github.com/Jackdashton/flight-app/assets/122602433/1a023533-867f-4535-a016-1108936ed769 )
