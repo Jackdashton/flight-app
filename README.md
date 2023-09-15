@@ -40,6 +40,8 @@ The project utilises the following technologies:
 - HTML / CSS
 - Node.js (16.15.1)
 - Express (4.18.2)
+- Vitest (0.34.4)
+- React Testing Library (14.0.0)
 
 ## Installation 
 
@@ -56,43 +58,19 @@ To get started with the project, follow these installation instructions:
    a)
    ```
    cd flight-app/server
-   npm init -y
-   npm install express node xml2js
-   npm i --save-dev nodemon
+   npm install
    ```
    b) 
    ```
    cd flight-app/client
-   npm install vite
-   npm install --save @fortawesome/fontawesome-free
+   npm install
    ```
    c) In the Client folder, create an .env file with the following code in it:
    ```
    VITE_REACT_APP_API_URL=https://flight-app-backend-f6c8773529d3.herokuapp.com/api/flights
    ```
 
-   ### Dependencies
-   * fontawesome (6.4.2)
-   * cors (2.8.5)
-   * xml2js (0.6.2)
-   * nodemon (3.0.1)
-   * eslint (8.45.0)
-   * jsdom (22.1.0)
-   * vitest (0.34.4)
-   * react testing library (14.0.0)
-  
-3. Add testing dependencies 
-   ```
-   cd flight-app/client
-   
-   npm install jsdom --save-dev
-
-   npm install vitest --save-dev
-
-   npm install @testing-library/react @testing-library/jest-dom --save-dev
-   
-   ```
-4. Run the project locally:
+3. Run the project locally:
 
    ```
    vite
@@ -115,7 +93,7 @@ The code was organised into several directories and files, each with a specific 
    - `src`: Home to the main source code of the application, organized into several subdirectories and files for better organization and separation of concerns
        - `components`: Contains the main React components and their respective modular CSS files.
        - `utils`: Contains the helper functions and Hooks to be used in conjunction with the main components.
-       - `test`: Contains the test file 
+       - `test`: Contains the test files 
    - `data`: Holds any large datasets to be used throughout the application. 
 
 ## Screenshots
@@ -131,7 +109,7 @@ The code was organised into several directories and files, each with a specific 
 ![ScreenShot 4](https://github.com/Jackdashton/flight-app/assets/122602433/b4f6f8cf-2f7a-4a6c-afc1-59f5cf71859a)
 
 ## Testing
-I was able to carry out some basic unit testing with the goal of gaining experience writing tests using the React Testing Library.
+I was able to carry out some basic unit/component testing with the goal of gaining experience writing tests using the React Testing Library.
 
 ![Testing](https://github.com/Jackdashton/flight-app/assets/122602433/45e61b7a-e23e-467b-bece-3cf239553de7)
 
