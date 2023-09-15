@@ -6,6 +6,18 @@ Welcome to the Flight App.
 
 Want to see the assessment without having to download and install? [(Flight App)](https://flight-app.jackashton.dev/)
 
+The Flight App is a project I created for a coding test which revolves around creating an API to provide access to a dataset containing two weeks of real flight information. The app aims to perform basic analysis on the retrieved data and answer the following questions:
+
+*	How many of the flights depart in the morning (before 12 PM)? 
+*	What percentage of the total set of flights fly into Sweden? 
+*	What are the 10 most popular destination airports? 
+*	What’s the average journey time between London Heathrow (LHR) and Dubai (DXB)?
+*	What are the 10 cheapest flights (converted to £)?
+
+The initial set of four questions constituted the core tasks assigned, while the fifth question was introduced as a captivating metric. It was selected due to the importance of price assessment in the evaluation of any commodity.
+Finally, the web application presents the data in an easy to follow way. 
+
+
 ## Table of Contents
 
 * [Project Description](#project-description)
